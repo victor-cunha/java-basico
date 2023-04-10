@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class SalarioVendedor {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Digite o número de carros vendidos: ");
+        int numCarrosVendidos = sc.nextInt();
+
+        System.out.print("Digite o valor total de vendas: ");
+        double valorTotalVendas = sc.nextDouble();
+
+        System.out.print("Digite o salário fixo: ");
+        double salarioFixo = sc.nextDouble();
+
+        System.out.print("Digite o valor por carro vendido: ");
+        double valorPorCarroVendido = sc.nextDouble();
+
+        double comissaoFixaPorCarro = 100.0; // Valor da comissão fixa por carro vendido
+        double comissaoPorVendas = 0.05; // Percentual da comissão sobre o valor total de vendas
+
+        double salarioFinal = salarioFixo + (numCarrosVendidos * valorPorCarroVendido) + (comissaoFixaPorCarro * numCarrosVendidos) + (comissaoPorVendas * valorTotalVendas);
+
+        System.out.printf("O salário final do vendedor é R$ %.2f", salarioFinal);
+
+        sc.close();
+    }
+}
