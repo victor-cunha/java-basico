@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class CaloriasRefeicao {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Definindo as calorias de cada opção
+        int[] caloriasPrato = { 180, 230, 250, 350 };
+        int[] caloriasSobremesa = { 75, 110, 170, 200 };
+        int[] caloriasBebida = { 5, 80, 100, 65 };
+
+        // Lendo as escolhas do usuário
+        System.out.println("Escolha o prato (1-4):");
+        int escolhaPrato = sc.nextInt();
+
+        System.out.println("Escolha a sobremesa (1-4):");
+        int escolhaSobremesa = sc.nextInt();
+
+        System.out.println("Escolha a bebida (1-4):");
+        int escolhaBebida = sc.nextInt();
+
+        // Calculando a quantidade total de calorias
+        int totalCalorias = caloriasPrato[escolhaPrato - 1] + caloriasSobremesa[escolhaSobremesa - 1] + caloriasBebida[escolhaBebida - 1];
+
+        // Imprimindo o resultado
+        System.out.printf("A refeição escolhida tem %d calorias", totalCalorias);
+
+        sc.close();
+    }
+}
