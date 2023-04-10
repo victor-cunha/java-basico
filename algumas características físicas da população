@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class CaracteristicasPopulacao {
+
+    public static void main(String[] args) {
+        
+        Scanner input = new Scanner(System.in);
+        
+        int totalIndividuos = 0;
+        int totalFeminino = 0;
+        int totalFeminino18a35Castanhos = 0;
+        
+        while (true) {
+            
+            System.out.println("Informe os dados do habitante:");
+            System.out.print("Sexo (m ou f): ");
+            char sexo = input.next().charAt(0);
+            System.out.print("Cor dos olhos (a, v, c ou p): ");
+            char corOlhos = input.next().charAt(0);
+            System.out.print("Cor dos cabelos (l, c, p ou r): ");
+            char corCabelos = input.next().charAt(0);
+            System.out.print("Idade em anos: ");
+            int idade = input.nextInt();
+            System.out.print("Valor do salário: ");
+            double salario = input.nextDouble();
+            
+            // Verifica se as informações são válidas
+            if (sexo == 'm' || sexo == 'f') {
+                if (corOlhos == 'a' || corOlhos == 'v' || corOlhos == 'c' || corOlhos == 'p') {
+                    if (corCabelos == 'l' || corCabelos == 'c' || corCabelos == 'p' || corCabelos == 'r') {
+                        if (idade >= 10 && idade <= 100) {
+                            if (salario >= 0) {
+                                totalIndividuos++;
+                                if (sexo == 'f') {
+                                    totalFeminino++;
+                                    if (idade >= 18 && idade <= 35 && corOlhos == 'c' && corCabelos == 'c') {
+                                        totalFeminino18a35Castanhos++;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Verifica se é o habitante fictício com idade -1
+            if (idade == -1) {
+                break;
+            }
+        }
+        
+        // Calcula a porcentagem de indivíduos do sexo feminino, com idade entre 18 e 35 anos e que tenham olhos castanhos e cabelos castanhos
+        double porcentagemFeminino18a35Castanhos = (double) totalFeminino18a35Castanhos / totalFeminino * 100;
+        
+        System.out.printf("Total de indivíduos: %d%n", totalIndividuos);
+        System.out.printf("Porcentagem de mulheres entre 18 e 35 anos com olhos e cabelos castanhos: %.2f%%", porcentagemFeminino18
